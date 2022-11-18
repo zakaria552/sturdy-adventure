@@ -367,7 +367,7 @@ describe("GET /api", () => {
     test(":) 200 - responds with json descriping all the endpoints", () => {
         return request(app).get("/api").expect(200).then(({body}) => {
             fs.readFile("endpoints2.json").then((content) => {
-                expect(body.endpoints).toEqual(content)
+                expect(body).toEqual(JSON.parse(content))
             })
         })
     })
