@@ -10,7 +10,7 @@ if (!process.env.PGDATABASE && !process.env.DATABASE_URL) {
 }
 console.log(ENV, "??")
 const config =
-  ENV === "production" ? {connectionString: process.env.DATABASE_URL} : {};
+  ENV === "production" ? {connectionString: process.env.DATABASE_URL, max: 2} : {};
 console.log(ENV,config)
 const db = new Pool(config)
 module.exports = db
